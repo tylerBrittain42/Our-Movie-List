@@ -22,4 +22,9 @@ Platform where users can share collaborative movie lists as well as find platfor
 - UX design
 - Authentication
 
+# Stack
+- Flask
+- OMDb API
+- Postgress SQL
+- Jinja(for now)
 
