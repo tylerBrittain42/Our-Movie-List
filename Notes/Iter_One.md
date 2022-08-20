@@ -5,3 +5,4 @@
 1. View Movie
 1. Add Movie
 
+flask --app oml --debug run
