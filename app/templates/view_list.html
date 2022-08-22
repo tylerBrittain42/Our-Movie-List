@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+View List
+{% endblock %}
+
+{% block additional_style %} {% endblock %} 
+
+{% block content %}
+<h1>View List</h1>
+<div class="content">
+    <table id="movie-list">
+        <tr id="table-key">
+            <th>#</th>
+            <th>ico</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Score</th>
+            <th>Added by</th>
+            <th>Up</th>
+            <th>Down</th>
+            <th>Delete</th>
+        </tr>
+    {% for entry in movies %}
+        <tr class="movie-entry">
+            <td>{{ entry.rank }}</td>
+            <td>{{ entry.ico }}</td>
+            <td>{{ entry.title }}</td>
+            <td>{{ entry.genre }}</td>
+            <td>{{ entry.rating }}</td>
+            <td>{{ entry.added_by }}</td>
+            <td>Up</td>
+            <td>Down</td>
+            <td>Delete</td>
+        </tr>
+        </tr>
+    {% endfor %}
+
+    </table>
+</div>
+{% endblock %}

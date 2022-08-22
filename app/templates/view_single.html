@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ movie.title }}
+{% endblock %}
+
+{% block additional_style %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/single_movie.css') }}">
+{% endblock %} 
+    
+{% block content %}
+<h1>test</h1>
+<div class="content">
+    <div class="wrapper">
+        <div id="sidebar">One</div>
+        <div id="title"> {{ movie.title }}</div>
+        <div id="details">Three</div>
+        <div id="synopsis">Four</div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
