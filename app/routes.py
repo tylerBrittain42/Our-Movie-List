@@ -38,14 +38,14 @@ def view_single(id=0):
     else:
         sample = {
             'id':1,
-            'icon':'harry_potter.jpg',
-            'title':'Harry Potter and the Deathly HAllows',
-            'release_year':2014,
+            'poster':'harry_potter.jpg',
+            'title':'Harry Potter and the Deathly Hallows',
+            'year':2014,
             'genre':'Fantasy',
             'rating':'3/10',
             'added_by':'Bryanna',
             'director':'Joe Mama',
-            'actors':['danny boi', 'emma watson'],
+            'actor':'danny boi, emma watson',
             'synopsis':'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rhoncus dui urna, et iaculis odio ultrices et. Integer vel euismod sem. Etiam sed sapien sit amet massa blandit sollicitudin. In hac habitasse platea dictumst. Mauris pulvinar aliquet mauris, id egestas ante faucibus ac. Pellentesque eget erat venenatis nisi ultricies feugiat. ',
             'imdb':'tt0926084'
         }

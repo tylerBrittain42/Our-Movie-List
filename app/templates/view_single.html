@@ -12,10 +12,32 @@
 <h1>test</h1>
 <div class="content">
     <div class="wrapper">
-        <div id="sidebar">One</div>
-        <div id="title"> {{ movie.title }}</div>
-        <div id="details">Three</div>
-        <div id="synopsis">Four</div>
+        <div id="sidebar"><img id="poster" src="{{ url_for('static', filename='images/' + movie.poster)}} " alt=""></div>
+        <div id="title-block"> <h3 id="title">{{ movie.title }} <em>({{ movie.year }})</em></h3></div>
+        <div id="details">
+            <div id="rating">
+                <p>rating: {{ movie.rating }}</p>
+            </div>
+            <div id="genre">
+                <p><em>{{ movie.genre }}</em></p>
+            </div>
+            <div id="director">
+                <p>Director: {{ movie.director }}</p>
+            </div>
+            <div id="actor">
+                <p>Actors: {{ movie.actor }}</p>
+            </div>
+
+        </div>
+        <div id="synopsis">
+            <p><strong>Synopsis</strong></p>
+            <p>{{ movie.synopsis }}</p>
+        </div>
+        <div id="imdb">
+            <p>
+                <a href="https://www.imdb.com/title/{{ movie.imdb }}">imdb link</a>
+            </p>
+        </div>
 
     </div>
 </div>
