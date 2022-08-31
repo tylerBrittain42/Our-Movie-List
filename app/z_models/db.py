@@ -1,4 +1,4 @@
-import psycopg
+# import psycopg
 from dotenv import dotenv_values
 
 # uri = f'postgresql://{credentials['USER']}:{credentials['PASSWORD']}@{credentials['IP']}:{credentials['PORT']}/{credentials['DBNAME']}'
@@ -41,7 +41,6 @@ class Database:
                 raise e
             finally:
                 print('Connection opened successfully')
+                return self.conn
             
 
-a = Database()
-a.connect()
