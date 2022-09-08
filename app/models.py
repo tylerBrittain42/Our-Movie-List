@@ -15,7 +15,7 @@ movie_list = db.Table('movie_list',
 
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), index=True, unique=True)
+    title = db.Column(db.String(100), index=True)
     genre = db.Column(db.String(50), default='n/a')
     year = db.Column(db.String(4), default='n/a')
     director = db.Column(db.String(100), default='n/a')
