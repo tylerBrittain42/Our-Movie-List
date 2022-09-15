@@ -34,18 +34,36 @@ class User(db.Model):
     name = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(30), nullable=False)
 
+    def hasList(self, list):
+        return self.lists.filter(user_list.c.l_id == list.id).count() == 1
+
+    def addList(self, list):
+        if self.hasList(list):
+            return
+        else:
+            self.lists.append(list)
+
+    def removeList(self, list):
+        if not self.hasList(list):
+            return
+        else:
+            self.lists.remove(list)
+
+
+    # def removeList(self, list):
+
     def __repr__(self):
-        return f'{self.id}) {self.name}'
+        return f'<{self.id} {self.name}>'
 
 
 class List(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name =  db.Column(db.String(80), nullable=False)
-    movie_list = db.relationship('Movie', secondary=movie_list, lazy='subquery',
-        backref=db.backref('lists', lazy=True))
-    user_list = db.relationship('User', secondary=user_list, lazy='subquery',
-        backref=db.backref('lists', lazy=True))
+    movie_list = db.relationship('Movie', secondary=movie_list, lazy='dynamic',
+        backref=db.backref('lists', lazy='dynamic'))
+    user_list = db.relationship('User', secondary=user_list, lazy='dynamic',
+        backref=db.backref('lists', lazy='dynamic'))
 
     def __repr__(self):
-        return f'{self.id}) {self.name}'
+        return f'<{self.id} {self.name}>'
 

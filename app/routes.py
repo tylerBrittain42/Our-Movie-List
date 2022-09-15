@@ -62,20 +62,46 @@ def add_single():
     return render_template('add_single.html')
 
 
-@app.route('/reset4321')
-def reset_db():
+@app.route('/reset')
+def db_reset():
 
-    return 200
-
-@app.route('/c')
-def testing_db():
+    db.drop_all()
+    db.create_all()
 
     import_csv('sample_movie.csv',Movie)
-    # import_csv('sample_list',List)
-    # import_csv('sample_user',User)
-    return 'a'
+    import_csv('sample_list.csv',List)
+    import_csv('sample_user.csv',User)
+    
+    return '<h1> Resetting DB </h1>' 
        
-        
+
+@app.route('/c')
+def test():
+
+    # Grab user and list
+    u1 = User.query.filter_by(name='James').first()
+    u2 = User.query.filter_by(name='Robert').first()
+    # print(u1.lists)
+    l1 = List.query.filter_by(name='2').first()
+    l2 = List.query.filter_by(name='4').first()
+    print(l1)
+    print('-'*25)
+
+
+    u1.addList(l1)
+    u1.addList(l1)
+    u1.addList(l2)
+    print(u1.lists.all())
+    u1.removeList(l2)
+    
+    
+    u2.lists.append(l2)
+    
+    print(u1.lists.all())
+    return 'test route'
+
+
+
 
 def import_csv(file_name, obj):
     """Import a csv to a database, provided that the csv maps to the model
@@ -110,30 +136,3 @@ def import_csv(file_name, obj):
         print(f'\nSUCCESS!!! {file_name} has been imported\n')
     
     return
-
-
-    # with open('./db_scripts/sample_movie.csv', 'r') as csv_file:
-    #     header = f.readline().rstrip("\n").split(',')
-
-    #     attribute_dict = {}
-    #     for index, attr in enumerate(header):
-    #         attribute_dict[index] = attr
-
-    #     print(attribute_dict)
-
-    #     for line in f:
-    #         movie = Movie()
-
-    #         set_obj_attr(movie, attribute_dict, line)
-    #         print(movie.id)
-    #         # loop to iterate through dict here
-    #         #  use set attr for each key value and update movie
-    #         # add movie to session
-    #         # commit after loop
-    
-    #         break
-
-    #     # use setattr to set attributes with dictionary
-    #     # print(header)
-    # return 'hi'
-
