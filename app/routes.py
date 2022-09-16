@@ -78,24 +78,24 @@ def db_reset():
 @app.route('/c')
 def test():
 
-    # Grab user and list
+    # Querying models
     u1 = User.query.filter_by(name='James').first()
     u2 = User.query.filter_by(name='Robert').first()
-    # print(u1.lists)
+    
     l1 = List.query.filter_by(name='2').first()
     l2 = List.query.filter_by(name='4').first()
     print(l1)
     print('-'*25)
 
 
-    u1.addList(l1)
-    u1.addList(l1)
-    u1.addList(l2)
-    print(u1.lists.all())
-    u1.removeList(l2)
+    # u1.addList(l1)
+    # u1.addList(l1)
+    # u1.addList(l2)
+    # print(u1.lists.all())
+    # u1.removeList(l2)
     
     
-    u2.lists.append(l2)
+    # u2.lists.append(l2)
     
     print(u1.lists.all())
     return 'test route'

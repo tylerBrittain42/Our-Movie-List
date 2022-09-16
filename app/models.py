@@ -64,6 +64,23 @@ class List(db.Model):
     user_list = db.relationship('User', secondary=user_list, lazy='dynamic',
         backref=db.backref('lists', lazy='dynamic'))
 
+
+    def hasMovie(self, movie):
+        return self.movie_list.filter(user_list.c.l_id == movie.id).count() == 1
+
+    def addMovie(self, movie):
+        if self.hasMovie(movie):
+            return
+        else:
+            self.movie_list.append(movie)
+
+    def removeMovie(self, movie):
+        if not self.hasMovie(movie):
+            return
+        else:
+            self.movie_list.remove(movie)
+
+            
     def __repr__(self):
         return f'<{self.id} {self.name}>'
 
