@@ -11,7 +11,7 @@
 # from app import routes, models
 
 import os
-from flask import Flask
+from flask import Flask, g
 from config import Config
 
 def create_app(test_config=None):
@@ -30,6 +30,8 @@ def create_app(test_config=None):
 
     @app.route('/')
     def init_route():
+        g.a = 'qwe'
+        print(g.a)
         return 'it works'
 
     return app
