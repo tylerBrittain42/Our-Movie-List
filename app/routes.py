@@ -5,6 +5,7 @@ from flask import render_template
 from app import app, db
 from app.models import Movie, List, User
 import csv
+import click
 
 
 
@@ -74,6 +75,8 @@ def db_reset():
     
     return '<h1> Resetting DB </h1>' 
        
+       
+    
 
 @app.route('/c')
 def test():
@@ -99,8 +102,6 @@ def test():
     
     print(u1.lists.all())
     return 'test route'
-
-
 
 
 def import_csv(file_name, obj):
@@ -136,3 +137,8 @@ def import_csv(file_name, obj):
         print(f'\nSUCCESS!!! {file_name} has been imported\n')
     
     return
+
+
+@app.cli.command('reset')
+def fooman():
+    db_reset()
