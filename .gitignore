@@ -4,3 +4,4 @@ __pycache__
 .flaskenv
 .env
 .db_env
+venv
