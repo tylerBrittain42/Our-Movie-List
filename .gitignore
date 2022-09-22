@@ -6,3 +6,4 @@ __pycache__
 .db_env
 instance
 .pytest_cache
+venv
