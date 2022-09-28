@@ -25,6 +25,7 @@ def close_db(e=None):
 
     if db is not None:
         db.close()
+    
 
 
 def init_db():
@@ -32,6 +33,7 @@ def init_db():
 
     with current_app.open_resource('schema.sql') as f:
         db.execute(f.read().decode('utf8'))
+        db.commit()
 
 
 @click.command("init-db")
