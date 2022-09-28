@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS list;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name CHAR(30) UNIQUE NOT NULL,
-    password CHAR(30) NOT NULL DEFAULT 'pass'
+    password TEXT NOT NULL
 );
 
 CREATE TABLE movie(
