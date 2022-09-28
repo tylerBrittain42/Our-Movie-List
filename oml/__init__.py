@@ -28,6 +28,10 @@ def create_app(test_config=None):
         print('error')
         pass
 
+
+    from . import db
+    db.init_app(app)
+
     @app.route('/')
     def init_route():
         g.a = 'qwe'
