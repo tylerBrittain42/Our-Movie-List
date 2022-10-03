@@ -20,6 +20,7 @@ def load_logged_in_user():
 
 @bp.post('/register')
 def register_post():
+    print('register post start')
     username = request.form['username']
     password = request.form['password']
     db = get_db()
@@ -39,6 +40,9 @@ def register_post():
             db.commit()
         except db.IntegrityError:
             error = f'User {username} is already registered'
+            print(error)
+        except Exception as e:
+            print(e)
         else:
             return redirect(url_for('auth.login_get'))
     
@@ -73,7 +77,7 @@ def login_post():
     if error is None:
         session.clear()
         session['user_id'] = user['id']
-        return 'yes'
+
         return redirect(url_for('index'))
 
     flash(error)

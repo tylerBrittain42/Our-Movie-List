@@ -36,7 +36,7 @@ def create_app(test_config=None):
     app.register_blueprint(auth.bp)
 
     @app.route('/')
-    def init_route():
+    def index():
         g.a = 'qwe'
         print(g.a)
         return 'it works'
