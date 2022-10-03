@@ -6,18 +6,18 @@ DROP TABLE IF EXISTS list;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    name CHAR(30) UNIQUE NOT NULL,
+    name TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL
 );
 
 CREATE TABLE movie(
     id SERIAL PRIMARY KEY,
-    title CHAR(100) NOT NULL,
-    genre CHAR(50) DEFAULT 'n/a',
-    year CHAR(4) DEFAULT 'n/a',
-    director CHAR(1000) DEFAULT 'n/a',
-    actor CHAR(200) DEFAULT 'n/a',
-    imdb CHAR(10) DEFAULT 'n/a',
+    title TEXT NOT NULL,
+    genre TEXT DEFAULT 'n/a',
+    year TEXT DEFAULT 'n/a',
+    director TEXT DEFAULT 'n/a',
+    actor TEXT DEFAULT 'n/a',
+    imdb TEXT DEFAULT 'n/a',
     score float4 DEFAULT -1,
     plot text DEFAULT 'n/a',
     custom_input BOOLEAN DEFAULT FALSE
@@ -25,7 +25,7 @@ CREATE TABLE movie(
 
 CREATE TABLE list(
     id SERIAL PRIMARY KEY,
-    name CHAR(80)
+    name TEXT
 );
 
 CREATE TABLE users_list(

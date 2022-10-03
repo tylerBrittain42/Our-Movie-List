@@ -1,5 +1,6 @@
 import click
 import psycopg
+from psycopg.rows import dict_row
 from flask import current_app, g
 # replace me with config file
 from dotenv import dotenv_values
@@ -16,7 +17,7 @@ def get_db():
         f'{env_vals["HOST"]}:{env_vals["PORT"]}/{env_vals["DBNAME"]}'    # REMOVE THIS
 
     if 'db' not in g:
-        g.db  = psycopg.connect(URI) # optionally, we could configure the row factory type here
+        g.db  = psycopg.connect(URI, row_factory=dict_row) # optionally, we could configure the row factory type here
     return g.db
 
 
