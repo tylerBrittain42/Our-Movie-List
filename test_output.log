@@ -1,0 +1,242 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-7.1.3, pluggy-1.0.0 -- /home/tyler/Documents/oml_dir/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/tyler/Documents/oml_dir
+collecting ... collected 12 items
+
+tests/test_auth.py::test_register ERROR                                  [  8%]
+tests/test_auth.py::test_register_validate_input[--Username is required.] ERROR [ 16%]
+tests/test_auth.py::test_register_validate_input[a--Password is required.] ERROR [ 25%]
+tests/test_auth.py::test_register_validate_input[test-test-already registered] ERROR [ 33%]
+tests/test_auth.py::test_login ERROR                                     [ 41%]
+tests/test_auth.py::test_login_validate_input[a-test-Incorrect username.] ERROR [ 50%]
+tests/test_auth.py::test_login_validate_input[test-a-Incorrect password.] ERROR [ 58%]
+tests/test_auth.py::test_logout ERROR                                    [ 66%]
+tests/test_db.py::test_get_close_db ERROR                                [ 75%]
+tests/test_db.py::test_init_db_command ERROR                             [ 83%]
+tests/test_factory.py::test_config PASSED                                [ 91%]
+tests/test_factory.py::test_hello ERROR                                  [100%]
+
+==================================== ERRORS ====================================
+_______________________ ERROR at setup of test_register ________________________
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+___ ERROR at setup of test_register_validate_input[--Username is required.] ____
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+___ ERROR at setup of test_register_validate_input[a--Password is required.] ___
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+_ ERROR at setup of test_register_validate_input[test-test-already registered] _
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+_________________________ ERROR at setup of test_login _________________________
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+___ ERROR at setup of test_login_validate_input[a-test-Incorrect username.] ____
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+___ ERROR at setup of test_login_validate_input[test-a-Incorrect password.] ____
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+________________________ ERROR at setup of test_logout _________________________
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+_____________________ ERROR at setup of test_get_close_db ______________________
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+____________________ ERROR at setup of test_init_db_command ____________________
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+_________________________ ERROR at setup of test_hello _________________________
+
+    @pytest.fixture
+    def app():
+        db_fd, db_path = tempfile.mkstemp()
+    
+        app = create_app({
+            'TESTING': True,
+            'DATABASE': db_path,
+        })
+    
+        with app.app_context():
+            init_db()
+>           get_db().executescript(_data_sql)
+E           AttributeError: 'Connection' object has no attribute 'executescript'
+
+tests/conftest.py:22: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+error
+=========================== short test summary info ============================
+ERROR tests/test_auth.py::test_register - AttributeError: 'Connection' object...
+ERROR tests/test_auth.py::test_register_validate_input[--Username is required.]
+ERROR tests/test_auth.py::test_register_validate_input[a--Password is required.]
+ERROR tests/test_auth.py::test_register_validate_input[test-test-already registered]
+ERROR tests/test_auth.py::test_login - AttributeError: 'Connection' object ha...
+ERROR tests/test_auth.py::test_login_validate_input[a-test-Incorrect username.]
+ERROR tests/test_auth.py::test_login_validate_input[test-a-Incorrect password.]
+ERROR tests/test_auth.py::test_logout - AttributeError: 'Connection' object h...
+ERROR tests/test_db.py::test_get_close_db - AttributeError: 'Connection' obje...
+ERROR tests/test_db.py::test_init_db_command - AttributeError: 'Connection' o...
+ERROR tests/test_factory.py::test_hello - AttributeError: 'Connection' object...
+========================= 1 passed, 11 errors in 0.93s =========================
