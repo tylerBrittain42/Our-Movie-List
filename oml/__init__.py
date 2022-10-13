@@ -35,6 +35,10 @@ def create_app(test_config=None):
     from . import auth
     app.register_blueprint(auth.bp)
 
+    # example blueprint showing how to create 'main' blueprint
+    # from . import tst_bp
+    # app.register_blueprint(tst_bp.bp)
+
     @app.route('/')
     def index():
         g.a = 'qwe'
