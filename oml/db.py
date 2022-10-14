@@ -12,11 +12,10 @@ env_vals = dotenv_values('.env')
 
 def get_db():
     
-    # REMOVE THIS 
-    URI = f'{env_vals["DB_TYPE"]}://{env_vals["USER"]}:{env_vals["PASSWORD"]}@' + \
-        f'{env_vals["HOST"]}:{env_vals["PORT"]}/{env_vals["DBNAME"]}'    # REMOVE THIS
 
+    # URI = current_app
     if 'db' not in g:
+        URI = current_app.config["URI"]
         g.db  = psycopg.connect(URI, row_factory=dict_row) # optionally, we could configure the row factory type here
     return g.db
 
