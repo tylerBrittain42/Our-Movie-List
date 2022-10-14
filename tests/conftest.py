@@ -14,12 +14,12 @@ def app():
 
     app = create_app({
         'TESTING': True,
-        'DATABASE': db_path,
+        'URI': 'postgresql://tyler:pass@127.0.0.1:5432/oml_test',
     })
 
     with app.app_context():
         init_db()
-        get_db().executescript(_data_sql)
+        get_db().execute(_data_sql)
 
     yield app
 

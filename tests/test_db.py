@@ -1,5 +1,4 @@
-import sqlite3
-
+import psycopg
 import pytest
 from oml.db import get_db
 
@@ -9,7 +8,7 @@ def test_get_close_db(app):
         db = get_db()
         assert db is get_db()
 
-    with pytest.raises(sqlite3.ProgrammingError) as e:
+    with pytest.raises(psycopg.Error) as e:
         db.execute('SELECT 1')
 
     assert 'closed' in str(e.value)
