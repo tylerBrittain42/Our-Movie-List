@@ -27,9 +27,9 @@ def register_post():
     error = None
 
     if not username:
-        error = 'username is required'
+        error = 'username is required.'
     elif not password:
-        error = 'password is required'
+        error = 'password is required.'
     
     if error is None:
         try:
@@ -39,11 +39,12 @@ def register_post():
                 """, (username, generate_password_hash(password)))
             db.commit()
         except db.IntegrityError:
-            error = f'User {username} is already registered'
-            print(error)
+            error = 'already registered'
+            print('fl1')
         except Exception as e:
             print(e)
         else:
+            print('fl2')
             return redirect(url_for('auth.login_get'))
     
     flash(error)
@@ -70,9 +71,9 @@ def login_post():
         user = cur.fetchone()
     
     if user is None:
-        error = 'Incorrect username'
+        error = 'Incorrect username.'
     elif not check_password_hash(user['password'],password):
-        error = 'Incorrect password'
+        error = 'Incorrect password.'
     
     if error is None:
         session.clear()

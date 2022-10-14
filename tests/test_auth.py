@@ -12,13 +12,13 @@ def test_register(client, app):
 
     with app.app_context():
         assert get_db().execute(
-            "SELECT * FROM user WHERE username = 'a'",
+            "SELECT * FROM users WHERE name = 'a'",
         ).fetchone() is not None
 
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
-    ('', '', b'Username is required.'),
-    ('a', '', b'Password is required.'),
+    ('', '', b'username is required.'),
+    ('a', '', b'password is required.'),
     ('test', 'test', b'already registered'),
 ))
 def test_register_validate_input(client, username, password, message):
@@ -26,6 +26,8 @@ def test_register_validate_input(client, username, password, message):
         '/auth/register',
         data={'username': username, 'password': password}
     )
+    print(f'message .{message}.')
+
     assert message in response.data
 
 
@@ -37,7 +39,7 @@ def test_login(client, auth):
     with client:
         client.get('/')
         assert session['user_id'] == 1
-        assert g.user['username'] == 'test'
+        assert g.user['name'] == 'test'
 
 
 @pytest.mark.parametrize(('username', 'password', 'message'), (
