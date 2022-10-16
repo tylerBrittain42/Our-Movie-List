@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-7.1.3, pluggy-1.0.0 -- /home/tyler/Documents/oml_dir/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/tyler/Documents/oml_dir
+collecting ... collected 8 items
+
+tests/test_auth.py::test_register PASSED                                 [ 12%]
+tests/test_auth.py::test_register_validate_input[--username is required.] PASSED [ 25%]
+tests/test_auth.py::test_register_validate_input[a--password is required.] PASSED [ 37%]
+tests/test_auth.py::test_register_validate_input[test-test-already registered] PASSED [ 50%]
+tests/test_auth.py::test_login PASSED                                    [ 62%]
+tests/test_auth.py::test_login_validate_input[a-test-Incorrect username.] PASSED [ 75%]
+tests/test_auth.py::test_login_validate_input[test-a-Incorrect password.] PASSED [ 87%]
+tests/test_auth.py::test_logout PASSED                                   [100%]
+
+============================== 8 passed in 1.91s ===============================
