@@ -26,9 +26,11 @@ Each of the below will more than likely become its own blueprint
 - search
 
 # Prioritization order
-1. Auth
+1. Auth(done)
 1. Movies
 1. User
 1. List
-
+1. Error handling
+1. UI stuff
+1. Nice-to-haves
 *note*: User and List may change
