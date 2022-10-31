@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block additional_style %} 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/single_movie.css') }}">
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/single_movie.css') }}"> -->
 {% endblock %} 
     
 {% block content %}
 <h1>test</h1>
 <div class="content">
     <div class="wrapper">
-        <div id="sidebar"><img id="poster" src="{{ url_for('static', filename='images/' + movie.poster)}} " alt=""></div>
+        <!-- <div id="sidebar"><img id="poster" src="{{ url_for('static', filename='images/' + movie.poster)}} " alt=""></div> -->
         <div id="title-block"> <h3 id="title">{{ movie.title }} <em>({{ movie.year }})</em></h3></div>
         <div id="details">
             <div id="rating">

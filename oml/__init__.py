@@ -35,6 +35,9 @@ def create_app(test_config=None):
     from .blueprints import auth
     app.register_blueprint(auth.bp)
 
+    from .blueprints import movie
+    app.register_blueprint(movie.bp)
+
     # example blueprint showing how to create 'main' blueprint
     # from . import tst_bp
     # app.register_blueprint(tst_bp.bp)
