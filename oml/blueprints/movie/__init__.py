@@ -1,5 +1,6 @@
 from flask import Blueprint, g, render_template
 from oml.blueprints.auth import login_required
+from oml.db import get_db
 
 bp = Blueprint('movie', __name__, url_prefix='/movie', template_folder='templates')
 
@@ -8,20 +9,14 @@ bp = Blueprint('movie', __name__, url_prefix='/movie', template_folder='template
 def index():
     return '<h1>movie index (temp)</h1>'
 
-@bp.get('/<movie_title>')
-def indiv_movie(movie_title):
+@bp.get('/<movie_id>')
+@login_required
+def indiv_movie(movie_id):
     
-    a = {
-            'id':1,
-            'poster':'harry_potter.jpg',
-            'title':'Harry Potter and the Deathly Hallows',
-            'year':2014,
-            'genre':'Fantasy',
-            'rating':'3/10',
-            'added_by':'Bryanna',
-            'director':'Joe Mama',
-            'actor':'danny boi, emma watson',
-            'synopsis':'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rhoncus dui urna, et iaculis odio ultrices et. Integer vel euismod sem. Etiam sed sapien sit amet massa blandit sollicitudin. In hac habitasse platea dictumst. Mauris pulvinar aliquet mauris, id egestas ante faucibus ac. Pellentesque eget erat venenatis nisi ultricies feugiat. ',
-            'imdb':'tt0926084'
-        }
-    return render_template('movie/view_single.html', movie=a)
+    # getting movie info
+    db = get_db()
+    movie_data = db.execute('SELECT * FROM movie WHERE id = (%s)', (movie_id,)).fetchone()
+    if movie_data is not None:
+        return render_template('movie/view_single.html', movie=movie_data, poster='harry_potter.jpg')
+    else:
+        return '<h1> INVALID ID </h1>'
