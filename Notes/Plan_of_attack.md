@@ -15,8 +15,8 @@ Each of the below will more than likely become its own blueprint
 - search
 - manage(for logged in acct only)
 ## /Movie
-- \<title>
-- browse(all)
+- \<title> (DONE)
+- browse(all) 
 - browse (filtered)
 - search
 ## /List
