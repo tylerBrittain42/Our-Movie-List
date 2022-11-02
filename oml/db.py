@@ -35,12 +35,23 @@ def init_db():
         db.execute(f.read().decode('utf8'))
         db.commit()
 
+def load_db():
+    db = get_db()
+    with current_app.open_resource('sample_movie.csv') as f:
+        with db.cursor().copy("COPY movie (title, genre, plot, director,actor,year,score) FROM STDIN WITH (FORMAT CSV)" ) as copy:
+         while data := f.read(1000):
+            copy.write(data)
+        db.commit()
 
 @click.command("init-db")
 def init_db_command():
     """Clear existing DB and create new tables"""
     init_db()
     click.echo("Initialized the database")
+
+    # load sample data
+    load_db()
+    click.echo("Loaded the database")
 
 
 def init_app(app):
