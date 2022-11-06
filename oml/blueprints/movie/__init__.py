@@ -34,4 +34,4 @@ def browse_all(page):
                                ASC OFFSET (%s) 
                                LIMIT (%s);''', (offset_value, PAGE_SIZE)).fetchall()
 
-    return render_template('view_all', movie_list=movie_list, poster='harry_potter.jpg')
+    return render_template('movie/view_all.html', movie_list=movie_list, poster='harry_potter.jpg')
