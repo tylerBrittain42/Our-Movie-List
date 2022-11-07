@@ -5,5 +5,18 @@ View all
 {% endblock %}
 
 {% block content %}
-<h1>content goes here</h1>
+<div class="header">
+    <h1>Browse {{ topic['All'] }}</h1>
+</div>
+<div> 
+    <h1>
+        flexbox goes here
+    </h1>
+</div>
+
+<footer>
+    <div class="page-navigation">
+        <p>{{ curr_page }} of {{ max_page }}</p>
+    </div>
+</footer>
 {% endblock %}
