@@ -4,6 +4,10 @@
 View all
 {% endblock %}
 
+{% block additional_style %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='view_all.css') }}">
+{% endblock %} 
+
 {% block content %}
 <div class="header">
     <h1>Browse {{ topic['All'] }}</h1>
@@ -12,6 +16,12 @@ View all
     <h1>
         flexbox goes here
     </h1>
+</div>
+
+<div class="card-movie">
+    <h3 class="card-title" >Movie Title Here</h3>
+    <img class="card-img" src="{{ url_for('static', filename='images/harry_potter.jpg') }}" alt="">
+    <h4 class="card-year">(2017)</h4>
 </div>
 
 <footer>
