@@ -15,11 +15,11 @@ View all
 <div class="container"> 
    
 {% for movie_entry in movie_list %}
-<div class="card-movie">
-    <h3 class="card-title" >{{ movie_entry.title }}</h3>
-    <img class="card-img" src="{{ url_for('static', filename='images/harry_potter.jpg') }}" alt="{{ movie_entry.title}} poster">
-    <h4 class="card-year">({{movie_entry.year}})</h4>
-</div> 
+    <div class="card-movie" id="{{ movie_entry.id }}">
+        <h3 class="card-title" >{{ movie_entry.title }}</h3>
+        <img class="card-img" src="{{ url_for('static', filename='images/harry_potter.jpg') }}" alt="{{ movie_entry.title}} poster">
+        <h4 class="card-year">({{movie_entry.year}})</h4>
+    </div> 
 {% endfor %}
     
 </div>
@@ -28,6 +28,8 @@ View all
             <p>{{ curr_page }} of {{ max_page }}</p>
         </div>
 </footer>
+
+<script src="{{ url_for('static', filename='scripts/view_all.js') }}"></script>
 {% endblock %}
 
 
