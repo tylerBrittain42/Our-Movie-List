@@ -12,21 +12,29 @@ View all
 <div class="header">
     <h1>Browse {{ topic['All'] }}</h1>
 </div>
-<div> 
-    <h1>
-        flexbox goes here
-    </h1>
+<div class="container"> 
+   
+{% for movie_entry in movie_list %}
+<div class="card-movie">
+    <h3 class="card-title" >{{ movie_entry.title }}</h3>
+    <img class="card-img" src="{{ url_for('static', filename='images/harry_potter.jpg') }}" alt="{{ movie_entry.title}} poster">
+    <h4 class="card-year">({{movie_entry.year}})</h4>
+</div> 
+{% endfor %}
+    
 </div>
+    <footer>
+        <div class="page-navigation">
+            <p>{{ curr_page }} of {{ max_page }}</p>
+        </div>
+</footer>
+{% endblock %}
 
+
+
+<!-- STATIC example
 <div class="card-movie">
     <h3 class="card-title" >Movie Title Here</h3>
     <img class="card-img" src="{{ url_for('static', filename='images/harry_potter.jpg') }}" alt="">
     <h4 class="card-year">(2017)</h4>
-</div>
-
-<footer>
-    <div class="page-navigation">
-        <p>{{ curr_page }} of {{ max_page }}</p>
-    </div>
-</footer>
-{% endblock %}
+</div> -->

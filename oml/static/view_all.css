@@ -1,16 +1,33 @@
+/* https://stackoverflow.com/questions/6618648/can-overflow-text-be-centered
+Look into overflow more */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .card-movie {
   background-color: aqua;
+  margin: 0 1em 1em 1em;
   width: 200px;
   height: 300px;
   border-radius: 20px;
   border: 3px solid black;
+  text-overflow: ellipsis;
+
 }
 
 .card-title {
+    display: block;
     text-align: center;
     padding-top: 0.5em;
-    margin-bottom: 0;
-}
+    margin: 0 auto 0 auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 90%;
+  }
 
 .card-img {
   display: block;

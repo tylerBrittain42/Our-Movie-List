@@ -54,7 +54,7 @@ def browse_all(page):
                                LIMIT (%s);""",
         (offset_value, PAGE_SIZE),
     ).fetchall()
-
+    print(movie_list)
     return render_template(
         "movie/view_all.html",
         movie_list=movie_list,
