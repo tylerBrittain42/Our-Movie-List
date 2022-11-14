@@ -15,12 +15,15 @@
   </ul>
 </nav>
 <nav class="navbar-2">
-  <h1>Temporary sidebar</h1>
+  <h1>Temporary headbar</h1>
   <ul>
     <li><a href="{{ url_for('movie.indiv_movie', movie_id=1) }}">single</a>
     <li><a href="{{ url_for('movie.browse_all', page=0) }}">all</a>
   </ul>
 </nav>
+
+{% block sidebar %}{% endblock %}
+
 <section class="content">
   {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
