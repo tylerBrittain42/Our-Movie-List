@@ -1,6 +1,9 @@
 # Our-Movie-List
+
+## Note
+I have met the learning goals that I set for myself when beginning this project. Due to this, this project will remain uncompleted for the time being.
 ## About
-*Our Movie List* is an easy way to help keep track of all of those movies that you and your friends promise to watch together. *Our Movie List* allows users to share collaborative lists as well as personal lists that can be used to find common interests in
+*Our Movie List* is an easy way to help keep track of all of those movies that you and your friends promise to watch together. *Our Movie List* allows users to share collaborative lists as well as personal lists that can be used to find common interests in.
 
 # Design   
 ## Concept

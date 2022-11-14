@@ -1,4 +1,5 @@
 import pandas as pd
+import csv
 
 
 
@@ -16,7 +17,8 @@ def main():
 def generate_movies():
     data_frame = pd.read_csv('db_scripts/IMDB_Data.csv')
     data_frame = data_frame.drop(columns=['Rank','Runtime','Votes','Revenue','Metascore'])
-    data_frame.to_csv('db_scripts/sample_movie.csv', index=False)
+    data_frame.to_csv('db_scripts/sample_movie.csv', index=False, quotechar='"',
+                      header=None, quoting=csv.QUOTE_NONNUMERIC)
 
 
 def generate_users(names,password):

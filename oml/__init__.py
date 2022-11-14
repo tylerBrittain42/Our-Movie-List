@@ -16,6 +16,7 @@ from config import Config
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
+    app.url_map.strict_slashes = False # REMOVE ME LATER
     
     if test_config is None:
         app.config.from_object(Config)
@@ -34,6 +35,9 @@ def create_app(test_config=None):
 
     from .blueprints import auth
     app.register_blueprint(auth.bp)
+
+    from .blueprints import movie
+    app.register_blueprint(movie.bp)
 
     # example blueprint showing how to create 'main' blueprint
     # from . import tst_bp

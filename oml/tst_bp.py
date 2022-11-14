@@ -3,7 +3,7 @@ from flask import (
 )
 from werkzeug.exceptions import abort
 
-from oml.auth import login_required
+from oml.blueprints.auth import login_required
 from oml.db import get_db
 
 bp = Blueprint('blog', __name__)

@@ -110,3 +110,7 @@ input[type="submit"] {
   align-self: start;
   min-width: 10em;
 }
+
+.navbar-2 {
+  background-color:aquamarine;
+}
